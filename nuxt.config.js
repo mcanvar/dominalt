@@ -25,19 +25,14 @@ export default {
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: [
-    '@/assets/css/main.scss'
-  ],
+  css: ['@/assets/css/main.scss'],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: {
-    dirs: [
-      '~/components',
-      '~/layouts/partials'
-    ]
+    dirs: ['~/components', '~/layouts/partials'],
   },
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
@@ -71,37 +66,37 @@ export default {
             '-1': '-1deg',
             '-2': '-2deg',
             '-3': '-3deg',
-            '1': '1',
-            '2': '2deg',
-            '3': '3deg',
+            1: '1',
+            2: '2deg',
+            3: '3deg',
           },
           borderRadius: {
-            'xl': '0.8rem',
-            'xxl': '1rem',
+            xl: '0.8rem',
+            xxl: '1rem',
           },
           height: {
             '1/2': '0.125rem',
             '2/3': '0.1875rem',
           },
           maxHeight: {
-            '16': '16rem',
-            '20': '20rem',
-            '24': '24rem',
-            '32': '32rem',
+            16: '16rem',
+            20: '20rem',
+            24: '24rem',
+            32: '32rem',
           },
           inset: {
             '1/2': '50%',
           },
           width: {
-            '96': '24rem',
-            '104': '26rem',
-            '128': '32rem',
+            96: '24rem',
+            104: '26rem',
+            128: '32rem',
           },
           transitionDelay: {
-            '450': '450ms',
+            450: '450ms',
           },
           colors: {
-            'wave': {
+            wave: {
               50: '#F2F8FF',
               100: '#E6F0FF',
               200: '#BFDAFF',
@@ -113,13 +108,13 @@ export default {
               800: '#002F73',
               900: '#00204D',
             },
-          }
+          },
         },
         plugins: [
           require('@tailwindcss/forms'),
-          require('@tailwindcss/typography')
-        ]
+          require('@tailwindcss/typography'),
+        ],
       },
-    }
+    },
   },
 }

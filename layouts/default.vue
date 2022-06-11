@@ -3,7 +3,7 @@
     <Header />
 
     <main class="flex-grow overflow-x-hidden">
-      <Nuxt/>
+      <Nuxt />
     </main>
 
     <Footer />
@@ -14,6 +14,4 @@
 export default {}
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>
