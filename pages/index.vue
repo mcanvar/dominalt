@@ -31,20 +31,23 @@
               data-replace='{ "transition-none": "transition-all", "invisible": "visible", "translate-y-12": "translate-y-0", "opacity-0": "opacity-100" }'
             >
               <div class="rounded-md">
-                <a
-                  href="/register"
-                  class="flex items-center justify-center w-full px-8 py-3 text-base font-medium leading-6 text-white transition duration-150 ease-in-out border border-transparent rounded-md bg-wave-500 hover:bg-wave-600 focus:outline-none focus:border-wave-600 focus:shadow-outline-indigo md:py-4 md:text-lg md:px-10"
+                <NuxtLink
+                  to="/register"
+                  tag="button"
+                  disabled
+                  class="cursor-not-allowed flex items-center justify-center w-full px-8 py-3 text-base font-medium leading-6 text-white transition duration-150 ease-in-out border border-transparent rounded-md bg-wave-500 hover:bg-wave-600 focus:outline-none focus:border-wave-600 focus:shadow-outline-indigo md:py-4 md:text-lg md:px-10"
                 >
                   Signup
-                </a>
+                </NuxtLink>
               </div>
               <div class="mt-3 sm:mt-0 sm:ml-3">
-                <a
-                  href="#"
+                <NuxtLink
+                  to="#"
+                  tag="button"
                   class="flex items-center justify-center w-full px-8 py-3 text-base font-medium leading-6 text-indigo-700 transition duration-150 ease-in-out bg-indigo-100 border-2 border-transparent rounded-md hover:text-indigo-600 hover:bg-indigo-50 focus:outline-none focus:shadow-outline-indigo focus:border-indigo-300 md:py-4 md:text-lg md:px-10"
                 >
                   Dive in
-                </a>
+                </NuxtLink>
               </div>
             </div>
           </div>
@@ -55,7 +58,7 @@
               data-replace='{ "transition-none": "transition-all", "invisible": "visible", "translate-x-12": "translate-y-0", "opacity-0": "opacity-100" }'
             >
               <img
-                src="https://img.freepik.com/free-vector/money-income-attraction_74855-6573.jpg?t=st=1655040962~exp=1655041562~hmac=129ec55fc717897df4ea8e9ca2e9965dc2014b0fdfd5f24ec24737d39ce3177b&w=600"
+                src="https://img.freepik.com/free-vector/flat-illustration-stock-trader-working-computer-with-graphs-man-investor-using-pc-analyzing-charts-diagrams-exchange-market-finances-cryptocurrency-investing_74855-20567.jpg?t=st=1655040962~exp=1655041562~hmac=9c1c41c69e03287ba0c01ed33c755a977313e14355c42fccb046781856bb72b3&w=600"
                 class="w-full max-w-3xl sm:w-auto"
               />
             </div>
@@ -319,6 +322,7 @@
         .wave-svg {
           fill: #0069ff;
         }
+
         .wave-svg-lighter {
           fill: #4c95fe;
         }
@@ -372,11 +376,13 @@
                 This is an example section of where you will add your
                 testimonials for your Software as a Service.
               </p>
-              <a
-                href="#_"
-                class="flex items-center justify-center px-8 py-3 text-base font-medium leading-6 text-white transition duration-150 ease-in-out border border-transparent rounded-md shadow bg-wave-600 hover:bg-wave-500 focus:outline-none focus:border-wave-700 focus:shadow-outline-wave md:py-4 md:text-lg md:px-10"
-                >View Case Studies</a
-              >
+              <NuxtLink
+                to="#"
+                tag="button"
+                disabled
+                class="cursor-not-allowed flex items-center justify-center px-8 py-3 text-base font-medium leading-6 text-white transition duration-150 ease-in-out border border-transparent rounded-md shadow bg-wave-600 hover:bg-wave-500 focus:outline-none focus:border-wave-700 focus:shadow-outline-wave md:py-4 md:text-lg md:px-10"
+                >View Case Studies
+              </NuxtLink>
             </div>
             <div class="w-full sm:w-4/5 lg:w-1/2">
               <blockquote
@@ -571,8 +577,8 @@
               </div>
 
               <div class="px-10 mt-5">
-                <span class="font-mono text-5xl font-bold">$5</span>
-                <span class="text-lg font-bold text-gray-500">per month</span>
+                <span class="font-mono text-5xl font-bold">Free</span>
+                <span class="text-lg font-bold text-gray-500">per year</span>
               </div>
 
               <div class="px-10 mt-6 pb-9">
@@ -670,7 +676,7 @@
 
               <div class="px-10 mt-5">
                 <span class="font-mono text-5xl font-bold">$8</span>
-                <span class="text-lg font-bold text-gray-500">per month</span>
+                <span class="text-lg font-bold text-gray-500">per year</span>
               </div>
 
               <div class="px-10 mt-6 pb-9">
@@ -743,103 +749,6 @@
                 <div
                   data-plan="11160"
                   class="inline-flex items-center justify-center w-full px-4 py-4 text-base font-semibold text-white transition duration-150 ease-in-out bg-gradient-to-r from-wave-600 to-indigo-500 hover:from-wave-500 hover:to-indigo-400 border border-transparent cursor-pointer rounded-b-md checkout focus:outline-none disabled:opacity-25"
-                >
-                  Get Started
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div
-            class="w-full max-w-md px-0 mx-auto mb-6 lg:w-1/3 lg:px-3 lg:mb-0"
-          >
-            <div
-              class="relative flex flex-col h-full mb-10 bg-white border border-gray-200 rounded-lg shadow-xl border-b-none sm:mb-0"
-            >
-              <div class="px-10 pt-7">
-                <div class="absolute right-0 inline-block mr-6 transform">
-                  <h2
-                    class="relative z-20 w-full h-full px-2 py-1 text-xs font-bold leading-tight tracking-wide text-center uppercase bg-white border-2 border-gray-900 text-gray-800 rounded"
-                  >
-                    Pro
-                  </h2>
-                </div>
-              </div>
-
-              <div class="px-10 mt-5">
-                <span class="font-mono text-5xl font-bold">$12</span>
-                <span class="text-lg font-bold text-gray-500">per month</span>
-              </div>
-
-              <div class="px-10 mt-6 pb-9">
-                <p class="text-lg leading-7 text-gray-500">
-                  Gain access to our pro features with the pro plan.
-                </p>
-              </div>
-
-              <div
-                class="relative px-10 pt-0 pb-12 mt-auto text-gray-700 rounded-b-lg"
-              >
-                <ul class="flex flex-col space-y-2.5">
-                  <li class="relative">
-                    <span class="flex items-center">
-                      <svg
-                        class="w-4 h-4 mr-3 text-green-500 fill-current"
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 20 20"
-                      >
-                        <path d="M0 11l2-2 5 5L18 3l2 2L7 18z"></path>
-                      </svg>
-
-                      <span> Pro Feature Example 1 </span>
-                    </span>
-                  </li>
-                  <li class="relative">
-                    <span class="flex items-center">
-                      <svg
-                        class="w-4 h-4 mr-3 text-green-500 fill-current"
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 20 20"
-                      >
-                        <path d="M0 11l2-2 5 5L18 3l2 2L7 18z"></path>
-                      </svg>
-
-                      <span> Pro Feature Example 2 </span>
-                    </span>
-                  </li>
-                  <li class="relative">
-                    <span class="flex items-center">
-                      <svg
-                        class="w-4 h-4 mr-3 text-green-500 fill-current"
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 20 20"
-                      >
-                        <path d="M0 11l2-2 5 5L18 3l2 2L7 18z"></path>
-                      </svg>
-
-                      <span> Pro Feature Example 3 </span>
-                    </span>
-                  </li>
-                  <li class="relative">
-                    <span class="flex items-center">
-                      <svg
-                        class="w-4 h-4 mr-3 text-green-500 fill-current"
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 20 20"
-                      >
-                        <path d="M0 11l2-2 5 5L18 3l2 2L7 18z"></path>
-                      </svg>
-
-                      <span> Pro Feature Example 4 </span>
-                    </span>
-                  </li>
-                </ul>
-              </div>
-
-              <div class="relative">
-                <div
-                  data-plan="11159"
-                  class="inline-flex items-center justify-center w-full px-4 py-4 text-base font-semibold text-white transition duration-150 ease-in-out bg-gray-800 hover:bg-gray-700 active:bg-gray-900 focus:border-gray-900 focus:shadow-outline-gray border border-transparent cursor-pointer rounded-b-md checkout focus:outline-none disabled:opacity-25"
                 >
                   Get Started
                 </div>
