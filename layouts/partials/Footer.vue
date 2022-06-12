@@ -226,7 +226,7 @@
       >
         <ul class="flex flex-wrap space-x-5 text-xs">
           <li class="mb-6 text-center flex-full lg:flex-none lg:mb-0">
-            © 2022 Wave, Inc. All rights reserved.
+            © 2022 Dominalt, Inc. All rights reserved.
           </li>
           <li class="lg:ml-6">
             <NuxtLink to="#_" class="relative inline-block text-black group">

@@ -76,9 +76,7 @@
 </template>
 
 <script>
-export default {
-  name: 'Logo',
-}
+export default {}
 </script>
 
 <style scoped></style>
