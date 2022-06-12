@@ -26,199 +26,138 @@
     </div>
 
     <div
+      id="dominalt"
       class="relative z-20 flex flex-col items-start justify-start px-8 mx-auto sm:items-center max-w-7xl xl:px-5"
     >
       <h2 class="text-4xl font-medium leading-9 text-white">
-        Awesome Features
+        The Magic of Dominalt
       </h2>
       <p class="mt-4 leading-6 sm:text-center text-wave-200">
-        Dominalt has some cool features to help you rapidly build your Software
-        as a Service.<br class="hidden md:block" />
-        Here are a few awesome features you're going to love!
+        Dominalt has some cool tables to help you build your strategy.<br
+          class="hidden md:block"
+        />
+        Here are a few awesome tables you're going to love!
       </p>
 
       <div
-        class="grid mt-16 gap-y-10 sm:grid-cols-2 sm:gap-x-8 md:gap-x-12 lg:grid-cols-3 xl:grid-cols-4 lg:gap-20"
+        class="grid mt-16 gap-y-5 grid-cols-1 gap-x-2 lg:gap-x-4 lg:grid-cols-2"
       >
-        <div>
-          <img
-            src="https://wave.devdojo.com/themes/tailwind/images/authentication.png"
-            class="w-16 rounded sm:mx-auto"
-          />
-          <h3
-            class="mt-6 text-sm font-semibold leading-6 sm:text-center text-wave-100"
+        <div class="w-full px-0 mb-6 lg:px-3 lg:mb-0">
+          <div
+            class="relative flex flex-col h-full mb-10 bg-white border border-gray-200 rounded-lg shadow-xl border-b-none sm:mb-0"
           >
-            Authentication
-          </h3>
-          <p class="mt-2 text-sm leading-5 sm:text-center text-wave-200">
-            Fully loaded authentication, email verification, and password reset.
-            Authentication in a snap!
-          </p>
+            <div class="px-10 pt-7">
+              <div class="absolute right-0 inline-block mr-6 transform">
+                <h2
+                  class="relative z-20 w-full h-full px-2 py-1 text-xs font-bold leading-tight tracking-wide text-center uppercase bg-white border-2 border-gray-900 text-gray-800 rounded"
+                >
+                  Top 100
+                </h2>
+              </div>
+            </div>
+
+            <div class="px-10 mt-5">
+              <span class="font-mono text-5xl font-bold">Theory</span>
+              <span class="text-lg font-bold text-gray-500">7 days</span>
+            </div>
+
+            <div
+              class="grid grid-cols-3 gap-1 grid-rows-1 place-items-center px-10 mt-6 pb-9 text-sm text-white font-semibold"
+            >
+              <div
+                class="grid grid-cols-1 grid-rows-7 gap-1 p-2 w-full place-items-center rounded-lg bg-gray-100"
+              >
+                <h3 class="text-gray-900">BTC.D</h3>
+                <ButtonStatus name="Increases" />
+                <ButtonStatus name="Increases" />
+                <ButtonStatus name="Increases" />
+                <ButtonStatus active name="Decreases" />
+                <ButtonStatus name="Decreases" />
+                <ButtonStatus name="Decreases" />
+              </div>
+              <div
+                class="grid grid-cols-1 grid-rows-7 gap-1 p-2 w-full place-items-center rounded-lg bg-gray-200"
+              >
+                <h3 class="text-gray-900">BTC</h3>
+                <ButtonStatus name="Increases" />
+                <ButtonStatus name="Decreases" />
+                <ButtonStatus name="Stable" />
+                <ButtonStatus active name="Increases" />
+                <ButtonStatus name="Decreases" />
+                <ButtonStatus name="Stable" />
+              </div>
+              <div
+                class="grid grid-cols-1 grid-rows-7 gap-1 p-2 w-full place-items-center rounded-lg bg-gray-300"
+              >
+                <h3 class="text-gray-900">ALTS</h3>
+                <ButtonStatus name="Decreases" />
+                <ButtonStatus name="Dec. Rapidly" />
+                <ButtonStatus name="Stable" />
+                <ButtonStatus active name="Inc. Rapidly" />
+                <ButtonStatus name="Dec.  /Stable" />
+                <ButtonStatus name="Increases" />
+              </div>
+            </div>
+          </div>
         </div>
-        <div>
-          <img
-            src="https://wave.devdojo.com/themes/tailwind/images/profile.png"
-            class="w-16 rounded sm:mx-auto"
-          />
-          <h3
-            class="mt-6 text-sm font-semibold leading-6 sm:text-center text-wave-100"
+
+        <div class="w-full px-0 mb-6 lg:px-3 lg:mb-0">
+          <div
+            class="relative flex flex-col h-full mb-10 bg-white border border-gray-200 rounded-lg shadow-xl border-b-none sm:mb-0"
           >
-            User Profiles
-          </h3>
-          <p class="mt-2 text-sm leading-5 sm:text-center text-wave-200">
-            Customizable user profiles. Allow your users to enter data and
-            easily customize their user profiles.
-          </p>
-        </div>
-        <div>
-          <img
-            src="https://wave.devdojo.com/themes/tailwind/images/impersonation.png"
-            class="w-16 rounded sm:mx-auto"
-          />
-          <h3
-            class="mt-6 text-sm font-semibold leading-6 sm:text-center text-wave-100"
-          >
-            User Impersonation
-          </h3>
-          <p class="mt-2 text-sm leading-5 sm:text-center text-wave-200">
-            With user impersonations you can login as another user and resolve
-            an issue or troubleshoot a bug.
-          </p>
-        </div>
-        <div>
-          <img
-            src="https://wave.devdojo.com/themes/tailwind/images/subscriptions.png"
-            class="w-16 rounded sm:mx-auto"
-          />
-          <h3
-            class="mt-6 text-sm font-semibold leading-6 sm:text-center text-wave-100"
-          >
-            Subscriptions
-          </h3>
-          <p class="mt-2 text-sm leading-5 sm:text-center text-wave-200">
-            Allow users to pay for your service and signup for a subscription
-            using Stripe or Braintree Payments.
-          </p>
-        </div>
-        <div>
-          <img
-            src="https://wave.devdojo.com/themes/tailwind/images/plans.png"
-            class="w-16 rounded sm:mx-auto"
-          />
-          <h3
-            class="mt-6 text-sm font-semibold leading-6 sm:text-center text-wave-100"
-          >
-            Subscription Plans
-          </h3>
-          <p class="mt-2 text-sm leading-5 sm:text-center text-wave-200">
-            Create new plans with different features and intrigue your users to
-            subscribe to any plan.
-          </p>
-        </div>
-        <div>
-          <img
-            src="https://wave.devdojo.com/themes/tailwind/images/roles.png"
-            class="w-16 rounded sm:mx-auto"
-          />
-          <h3
-            class="mt-6 text-sm font-semibold leading-6 sm:text-center text-wave-100"
-          >
-            User Roles
-          </h3>
-          <p class="mt-2 text-sm leading-5 sm:text-center text-wave-200">
-            Grant user permissions based on roles, you can then assign a role to
-            a specific plan.
-          </p>
-        </div>
-        <div>
-          <img
-            src="https://wave.devdojo.com/themes/tailwind/images/notifications.png"
-            class="w-16 rounded sm:mx-auto"
-          />
-          <h3
-            class="mt-6 text-sm font-semibold leading-6 sm:text-center text-wave-100"
-          >
-            Notifications
-          </h3>
-          <p class="mt-2 text-sm leading-5 sm:text-center text-wave-200">
-            Ready-to-use Notification System which integrates with the default
-            Laravel notification feature.
-          </p>
-        </div>
-        <div>
-          <img
-            src="https://wave.devdojo.com/themes/tailwind/images/announcements.png"
-            class="w-16 rounded sm:mx-auto"
-          />
-          <h3
-            class="mt-6 text-sm font-semibold leading-6 sm:text-center text-wave-100"
-          >
-            Announcements
-          </h3>
-          <p class="mt-2 text-sm leading-5 sm:text-center text-wave-200">
-            Create user announcements to notify users about new features or
-            updates in your application.
-          </p>
-        </div>
-        <div>
-          <img
-            src="https://wave.devdojo.com/themes/tailwind/images/blog.png"
-            class="w-16 rounded sm:mx-auto"
-          />
-          <h3
-            class="mt-6 text-sm font-semibold leading-6 sm:text-center text-wave-100"
-          >
-            Blog
-          </h3>
-          <p class="mt-2 text-sm leading-5 sm:text-center text-wave-200">
-            Equipped with a fully-functional blog. Write posts related to your
-            product to gain free SEO traffic.
-          </p>
-        </div>
-        <div>
-          <img
-            src="https://wave.devdojo.com/themes/tailwind/images/api.png"
-            class="w-16 rounded sm:mx-auto"
-          />
-          <h3
-            class="mt-6 text-sm font-semibold leading-6 sm:text-center text-wave-100"
-          >
-            Fully Functional API
-          </h3>
-          <p class="mt-2 text-sm leading-5 sm:text-center text-wave-200">
-            Ready-to-consume API for your application. Create API tokens with
-            role specific permissions.
-          </p>
-        </div>
-        <div>
-          <img
-            src="https://wave.devdojo.com/themes/tailwind/images/admin.png"
-            class="w-16 rounded sm:mx-auto"
-          />
-          <h3
-            class="mt-6 text-sm font-semibold leading-6 sm:text-center text-wave-100"
-          >
-            Voyager Admin
-          </h3>
-          <p class="mt-2 text-sm leading-5 sm:text-center text-wave-200">
-            Dominalt has been crafted using Laravel &amp; Voyager, which makes
-            administering your app a breeze!
-          </p>
-        </div>
-        <div>
-          <img
-            src="https://wave.devdojo.com/themes/tailwind/images/themes.png"
-            class="w-16 rounded sm:mx-auto"
-          />
-          <h3
-            class="mt-6 text-sm font-semibold leading-6 sm:text-center text-wave-100"
-          >
-            Themes
-          </h3>
-          <p class="mt-2 text-sm leading-5 sm:text-center text-wave-200">
-            Fully configurable themes. Choose from a few starter themes to begin
-            configuring to make it your own.
-          </p>
+            <div class="px-10 pt-7">
+              <div class="absolute right-0 inline-block mr-6 transform">
+                <h2
+                  class="relative z-20 w-full h-full px-2 py-1 text-xs font-bold leading-tight tracking-wide text-center uppercase bg-white border-2 border-gray-900 text-gray-800 rounded"
+                >
+                  Top 100
+                </h2>
+              </div>
+            </div>
+
+            <div class="px-10 mt-5">
+              <span class="font-mono text-5xl font-bold">Actual</span>
+              <span class="text-lg font-bold text-gray-500">7 days</span>
+            </div>
+
+            <div
+              class="grid grid-cols-3 gap-1 grid-rows-1 place-items-center px-10 mt-6 pb-9 text-sm text-white font-semibold"
+            >
+              <div
+                class="grid grid-cols-1 grid-rows-7 gap-1 p-2 w-full place-items-center rounded-lg bg-gray-100"
+              >
+                <h3 class="text-gray-900">BTC.D</h3>
+                <ButtonStatus name="Increases" />
+                <ButtonStatus name="Increases" />
+                <ButtonStatus name="Increases" />
+                <ButtonStatus active decreasing name="42.1% (-1.8%)" />
+                <ButtonStatus name="Decreases" />
+                <ButtonStatus name="Decreases" />
+              </div>
+              <div
+                class="grid grid-cols-1 grid-rows-7 gap-1 p-2 w-full place-items-center rounded-lg bg-gray-200"
+              >
+                <h3 class="text-gray-900">BTC</h3>
+                <ButtonStatus name="Increases" />
+                <ButtonStatus name="Decreases" />
+                <ButtonStatus name="Stable" />
+                <ButtonStatus active increasing name="44.640 (+3%)" />
+                <ButtonStatus name="Decreases" />
+                <ButtonStatus name="Stable" />
+              </div>
+              <div
+                class="grid grid-cols-1 grid-rows-7 gap-1 p-2 w-full place-items-center rounded-lg bg-gray-300"
+              >
+                <h3 class="text-gray-900">ALTS</h3>
+                <ButtonStatus name="Decreases" />
+                <ButtonStatus name="Dec. Rapidly" />
+                <ButtonStatus name="Stable" />
+                <ButtonStatus active increasing name="+11.3 %" />
+                <ButtonStatus name="Dec./Stable" />
+                <ButtonStatus name="Increases" />
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
