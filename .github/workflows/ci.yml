@@ -42,3 +42,14 @@ jobs:
 
       - name: Run linter 👀
         run: npm run lint
+
+      - name: Generate
+        run: npm run generate
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GHTOKEN }}
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GHTOKEN }}
+          publish_dir: ./dist
