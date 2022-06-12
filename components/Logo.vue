@@ -50,6 +50,7 @@
       data-uid="o_f0kb5nj9j_9"
     ></path>
     <path
+      id="_bACKzYL2clyS4dqlExFb0"
       text="Dominalt"
       text-anchor="middle"
       font-size="100"
@@ -58,7 +59,6 @@
       offset="0.5"
       dx="0"
       dy="0"
-      id="_bACKzYL2clyS4dqlExFb0"
       space="preserve"
       href=""
       font-family="Montserrat"
