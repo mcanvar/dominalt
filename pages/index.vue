@@ -10,21 +10,21 @@
               class="text-sm font-semibold tracking-wide text-gray-700 uppercase duration-700 ease-out transform sm:text-base lg:text-sm xl:text-base transition-all visible translate-y-0 scale-100 opacity-100"
               data-replace='{ "transition-none": "transition-all", "invisible": "visible", "translate-y-12": "translate-y-0", "scale-110": "scale-100", "opacity-0": "opacity-100" }'
             >
-              Welcome to Wave
+              Welcome to Dominalt
             </h2>
             <h1
               class="pb-2 mt-3 text-4xl font-extrabold leading-10 tracking-tight text-transparent duration-700 ease-out delay-150 transform bg-clip-text bg-gradient-to-r from-blue-600 via-blue-500 to-purple-600 scale-10 md:my-5 sm:leading-none lg:text-5xl xl:text-6xl transition-all visible translate-y-0 scale-100 opacity-100"
               data-replace='{ "transition-none": "transition-all", "invisible": "visible", "translate-y-12": "translate-y-0", "scale-110": "scale-100", "opacity-0": "opacity-100" }'
             >
-              Start crafting your next great idea.
+              Start building your next investment idea.
             </h1>
             <p
               class="max-w-2xl mt-0 text-base text-left text-gray-600 duration-700 ease-out delay-300 transform md:text-center lg:text-left sm:mt-2 md:mt-0 sm:text-base lg:text-lg xl:text-xl transition-all visible translate-y-0 scale-100 opacity-100"
               data-replace='{ "transition-none": "transition-all", "invisible": "visible", "translate-y-12": "translate-y-0", "scale-110": "scale-100", "opacity-0": "opacity-100" }'
             >
-              Wave will help you rapidly build a Software as a Service. Out of
-              the box Authentication, Subscriptions, Invoices, Announcements,
-              User Profiles, API, and so much more!
+              Dominalt will help you rapidly build the strategy of your next
+              investment. Out of the box screens, calculators, announcements,
+              and so much more!
             </p>
             <div
               class="w-full mt-5 duration-700 ease-out transform delay-450 sm:mt-8 sm:flex sm:justify-center lg:justify-start sm:w-auto transition-all visible translate-y-0 opacity-100"
@@ -43,7 +43,7 @@
                   href="#"
                   class="flex items-center justify-center w-full px-8 py-3 text-base font-medium leading-6 text-indigo-700 transition duration-150 ease-in-out bg-indigo-100 border-2 border-transparent rounded-md hover:text-indigo-600 hover:bg-indigo-50 focus:outline-none focus:shadow-outline-indigo focus:border-indigo-300 md:py-4 md:text-lg md:px-10"
                 >
-                  Learn More
+                  Dive in
                 </a>
               </div>
             </div>
@@ -55,7 +55,7 @@
               data-replace='{ "transition-none": "transition-all", "invisible": "visible", "translate-x-12": "translate-y-0", "opacity-0": "opacity-100" }'
             >
               <img
-                src="https://wave.devdojo.com/storage/themes/February2018/mFajn4fwpGFXzI1UsNH6.png"
+                src="https://img.freepik.com/free-vector/money-income-attraction_74855-6573.jpg?t=st=1655040962~exp=1655041562~hmac=129ec55fc717897df4ea8e9ca2e9965dc2014b0fdfd5f24ec24737d39ce3177b&w=600"
                 class="w-full max-w-3xl sm:w-auto"
               />
             </div>

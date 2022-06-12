@@ -6,11 +6,7 @@
           href="#_"
           class="flex items-center w-auto text-lg font-bold md:w-1/6"
         >
-          <img
-            class="h-10"
-            src="https://wave.devdojo.com/storage/themes/August2018/TksmVWMqp5JXUQj8C6Ct.png"
-            alt="Company name"
-          />
+          <Logo />
         </a>
         <div
           class="grid w-full grid-cols-2 pt-2 mt-20 sm:grid-cols-4 gap-y-16 lg:gap-x-8 md:w-5/6 md:mt-0 md:pr-6"
