@@ -113,10 +113,6 @@ export default {
             },
           },
         },
-        plugins: [
-          require('@tailwindcss/forms'),
-          require('@tailwindcss/typography'),
-        ],
       },
       content: [
         `components/**/*.{vue,js}`,
