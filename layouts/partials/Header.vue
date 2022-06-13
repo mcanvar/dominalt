@@ -8,7 +8,7 @@
           <!-- data-replace='{ "translate-y-12": "translate-y-0", "scale-110": "scale-100", "opacity-0": "opacity-100" }' -->
           <NuxtLink
             to="/"
-            class="flex items-center justify-center space-x-3 transition-all duration-1000 ease-out transform text-wave-500"
+            class="flex items-center w-32 lg:w-64 justify-center space-x-3 transition-all duration-1000 ease-out transform text-wave-500"
           >
             <Logo />
           </NuxtLink>

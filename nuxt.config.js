@@ -1,3 +1,6 @@
+// eslint-disable-next-line nuxt/no-cjs-in-config
+const colors = require('tailwindcss/colors')
+
 export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   ssr: false,
@@ -99,6 +102,8 @@ export default {
             450: '450ms',
           },
           colors: {
+            rose: colors.rose,
+            teal: colors.teal,
             wave: {
               50: '#F2F8FF',
               100: '#E6F0FF',
