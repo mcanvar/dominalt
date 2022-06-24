@@ -8,26 +8,26 @@ export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
   router: {
-    base: '/dominalt/',
+    base: '/dominalt/'
   },
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'Dominalt',
     htmlAttrs: {
-      lang: 'en',
+      lang: 'en'
     },
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: '' },
-      { name: 'format-detection', content: 'telephone=no' },
+      { name: 'format-detection', content: 'telephone=no' }
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
 
     bodyAttrs: {
-      class: 'flex flex-col min-h-screen bg-white pb-10 font-sans',
-    },
+      class: 'flex flex-col min-h-screen bg-white pb-10 font-sans'
+    }
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
@@ -38,7 +38,7 @@ export default {
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: {
-    dirs: ['~/components', '~/layouts/partials'],
+    dirs: ['~/components', '~/layouts/partials']
   },
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
@@ -46,19 +46,19 @@ export default {
     // https://go.nuxtjs.dev/typescript
     '@nuxt/typescript-build',
     // https://go.nuxtjs.dev/tailwindcss
-    '@nuxtjs/tailwindcss',
+    '@nuxtjs/tailwindcss'
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     // https://go.nuxtjs.dev/axios
-    '@nuxtjs/axios',
+    '@nuxtjs/axios'
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
-    baseURL: '/',
+    baseURL: '/'
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
@@ -74,32 +74,32 @@ export default {
             '-3': '-3deg',
             1: '1',
             2: '2deg',
-            3: '3deg',
+            3: '3deg'
           },
           borderRadius: {
             xl: '0.8rem',
-            xxl: '1rem',
+            xxl: '1rem'
           },
           height: {
             '1/2': '0.125rem',
-            '2/3': '0.1875rem',
+            '2/3': '0.1875rem'
           },
           maxHeight: {
             16: '16rem',
             20: '20rem',
             24: '24rem',
-            32: '32rem',
+            32: '32rem'
           },
           inset: {
-            '1/2': '50%',
+            '1/2': '50%'
           },
           width: {
             96: '24rem',
             104: '26rem',
-            128: '32rem',
+            128: '32rem'
           },
           transitionDelay: {
-            450: '450ms',
+            450: '450ms'
           },
           colors: {
             rose: colors.rose,
@@ -114,10 +114,10 @@ export default {
               600: '#005FE6',
               700: '#003F99',
               800: '#002F73',
-              900: '#00204D',
-            },
-          },
-        },
+              900: '#00204D'
+            }
+          }
+        }
       },
       content: [
         `components/**/*.{vue,js}`,
@@ -126,8 +126,8 @@ export default {
         `composables/**/*.{js,ts}`,
         `plugins/**/*.{js,ts}`,
         `App.{js,ts,vue}`,
-        `app.{js,ts,vue}`,
-      ],
-    },
-  },
+        `app.{js,ts,vue}`
+      ]
+    }
+  }
 }
