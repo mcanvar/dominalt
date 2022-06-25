@@ -14,20 +14,20 @@ export default Vue.extend({
   props: {
     active: {
       type: Boolean,
-      default: false,
+      default: false
     } as PropOptions<boolean>,
     increasing: {
       type: Boolean,
-      default: false,
+      default: false
     } as PropOptions<boolean>,
     decreasing: {
       type: Boolean,
-      default: false,
+      default: false
     } as PropOptions<boolean>,
     name: {
       type: String,
-      required: true,
-    } as PropOptions<string>,
+      required: true
+    } as PropOptions<string>
   },
   computed: {
     activeClasses() {
@@ -47,10 +47,10 @@ export default Vue.extend({
         'from-rose-400': this.decreasing,
         'to-rose-600': this.decreasing,
         'hover:from-rose-300': this.decreasing,
-        'hover:to-rose-500': this.decreasing,
+        'hover:to-rose-500': this.decreasing
       }
-    },
-  },
+    }
+  }
 })
 </script>
 

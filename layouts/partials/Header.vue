@@ -295,9 +295,9 @@ export default Vue.extend({
     const dropdown: boolean = false
 
     return {
-      dropdown,
+      dropdown
     }
-  },
+  }
 })
 </script>
 
