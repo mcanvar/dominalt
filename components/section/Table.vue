@@ -62,40 +62,50 @@
             </div>
 
             <div
-              class="grid grid-cols-3 gap-1 grid-rows-1 place-items-center px-10 mt-6 pb-9 text-sm text-white font-semibold"
+              class="grid grid-cols-3 gap-x-1 place-items-center px-10 mt-6 pb-9 text-sm text-white font-semibold"
             >
-              <div
-                class="grid grid-cols-1 grid-rows-7 gap-1 p-2 w-full place-items-center rounded-lg bg-gray-100"
-              >
+              <div class="rounded-t-lg bg-gray-100 p-1 w-full text-center">
                 <h3 class="text-gray-900">BTC.D</h3>
-                <ButtonStatus name="Increases" />
-                <ButtonStatus name="Increases" />
-                <ButtonStatus name="Increases" />
-                <ButtonStatus active name="Decreases" />
-                <ButtonStatus name="Decreases" />
-                <ButtonStatus name="Decreases" />
               </div>
-              <div
-                class="grid grid-cols-1 grid-rows-7 gap-1 p-2 w-full place-items-center rounded-lg bg-gray-200"
-              >
+              <div class="rounded-t-lg bg-gray-200 p-1 w-full text-center">
                 <h3 class="text-gray-900">BTC</h3>
-                <ButtonStatus name="Increases" />
-                <ButtonStatus name="Decreases" />
-                <ButtonStatus name="Stable" />
-                <ButtonStatus active name="Increases" />
-                <ButtonStatus name="Decreases" />
-                <ButtonStatus name="Stable" />
               </div>
+              <div class="rounded-t-lg bg-gray-300 p-1 w-full text-center">
+                <h3 class="text-gray-900">ALTs</h3>
+              </div>
+
               <div
-                class="grid grid-cols-1 grid-rows-7 gap-1 p-2 w-full place-items-center rounded-lg bg-gray-300"
+                v-for="(rule, i) in rules"
+                :key="i"
+                class="grid grid-cols-3 col-span-3 w-full gap-x-1"
               >
-                <h3 class="text-gray-900">ALTS</h3>
-                <ButtonStatus name="Decreases" />
-                <ButtonStatus name="Dec. Rapidly" />
-                <ButtonStatus name="Stable" />
-                <ButtonStatus active name="Inc. Rapidly" />
-                <ButtonStatus name="Dec.  /Stable" />
-                <ButtonStatus name="Increases" />
+                <div
+                  :class="{ 'rounded-b-lg': i === 5 }"
+                  class="bg-gray-100 p-1 w-full text-center"
+                >
+                  <ButtonStatus
+                    :active="isInCurrent(rule)"
+                    :name="rule.dominance"
+                  />
+                </div>
+                <div
+                  :class="{ 'rounded-b-lg': i === 5 }"
+                  class="bg-gray-200 p-1 w-full text-center"
+                >
+                  <ButtonStatus
+                    :active="isInCurrent(rule)"
+                    :name="rule.BTCPrice"
+                  />
+                </div>
+                <div
+                  :class="{ 'rounded-b-lg': i === 5 }"
+                  class="bg-gray-300 p-1 w-full text-center"
+                >
+                  <ButtonStatus
+                    :active="isInCurrent(rule)"
+                    :name="rule.ALTsPrice"
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -175,53 +185,84 @@ export default {
       BTCDominanceChangeInPercent: 0,
       BTCPriceChangeInPercent: 0,
       ALTsPriceChangeInPercent: 0,
-      rows: {
-        theory: [
-          {
-            1: [
-              { name: 'Increases', active: false },
-              { name: 'Increases', active: false },
-              { name: 'Decreases', active: false }
-            ],
-            2: [
-              { name: 'Increases', active: false },
-              { name: 'Decreases', active: false },
-              { name: 'Dec. Rapidly', active: false }
-            ],
-            3: [
-              { name: 'Increases', active: false },
-              { name: 'Stable', active: false },
-              { name: 'Stable', active: false }
-            ],
-            4: [
-              { name: 'Decreases', active: false },
-              { name: 'Increases', active: false },
-              { name: 'Inc. Rapidly', active: false }
-            ],
-            5: [
-              { name: 'Decreases', active: false },
-              { name: 'Decreases', active: false },
-              { name: 'Dec. / Stable', active: false }
-            ],
-            6: [
-              { name: 'Decreases', active: false },
-              { name: 'Stable', active: false },
-              { name: 'Increases', active: false }
-            ]
-          }
-        ]
-      }
+      rules: [
+        {
+          dominance: 'Increases',
+          BTCPrice: 'Increases',
+          ALTsPrice: 'Decreases'
+        },
+        {
+          dominance: 'Increases',
+          BTCPrice: 'Decreases',
+          ALTsPrice: 'Dec. Rapidly'
+        },
+        {
+          dominance: 'Increases',
+          BTCPrice: 'Stable',
+          ALTsPrice: 'Stable'
+        },
+        {
+          dominance: 'Decreases',
+          BTCPrice: 'Increases',
+          ALTsPrice: 'Inc. Rapidly'
+        },
+        {
+          dominance: 'Decreases',
+          BTCPrice: 'Decreases',
+          ALTsPrice: 'Dec. or Stable'
+        },
+        {
+          dominance: 'Decreases',
+          BTCPrice: 'Stable',
+          ALTsPrice: 'Increases'
+        }
+      ]
     }
   },
   computed: {
+    currentRule() {
+      return {
+        dominance: this.isBTCDominanceIncreased ? 'Increases' : 'Decreases',
+        BTCPrice: this.isBTCPriceIncreased
+          ? 'Increases'
+          : this.isBTCPriceStable
+          ? 'Stable'
+          : 'Decreases',
+        ALTsPrice: this.ALTsPriceText
+      }
+    },
     isBTCDominanceIncreased() {
-      return false
+      return this.BTCDominanceChangeInPercent > 0
     },
     isBTCPriceIncreased() {
-      return false
+      return this.BTCPriceChangeInPercent > 1
     },
-    isALTsPriceIncreased() {
-      return false
+    isBTCPriceStable() {
+      return (
+        this.BTCPriceChangeInPercent >= -1 && this.BTCPriceChangeInPercent <= 1
+      )
+    },
+    absoluteALTsPriceChangeInPercent() {
+      return Math.abs(this.ALTsPriceChangeInPercent)
+    },
+    ALTsPriceText() {
+      if (
+        this.ALTsPriceChangeInPercent > 1 &&
+        this.absoluteALTsPriceChangeInPercent > 5
+      )
+        return 'Inc. Rapidly'
+
+      if (this.ALTsPriceChangeInPercent > 1) return 'Increases'
+
+      if (
+        this.ALTsPriceChangeInPercent >= -1 &&
+        this.ALTsPriceChangeInPercent <= 1
+      )
+        return 'Stable'
+
+      if (this.ALTsPriceChangeInPercent < -1) return 'Decreases'
+
+      return 'Dec. Rapidly'
     }
   },
   async mounted() {
@@ -242,9 +283,6 @@ export default {
         .substr(0, 10)}&interval=1d`
     )
 
-    console.log()
-
-    // const currentBTCMCap = coins[0].market_cap;
     let priceChangeInPercentOfALTsTotal = 0
     for (const coin of coins) {
       if (coin.id === 'bitcoin') continue
@@ -265,7 +303,21 @@ export default {
     this.ALTsPriceChangeInPercent = priceChangeInPercentOfALTsTotal / 99
   },
   methods: {
-    isButtonActive() {}
+    isInCurrent(rule) {
+      let ALTsPrice = ''
+      if (
+        rule.ALTsPrice === 'Dec. or Stable' &&
+        (this.currentRule.ALTsPrice === 'Decreases' ||
+          this.currentRule.ALTsPrice === 'Stable')
+      )
+        ALTsPrice = this.currentRule.ALTsPrice
+
+      return (
+        rule.dominance === this.currentRule.dominance &&
+        rule.BTCPrice === this.currentRule.BTCPrice &&
+        ALTsPrice === this.currentRule.ALTsPrice
+      )
+    }
   }
 }
 </script>
