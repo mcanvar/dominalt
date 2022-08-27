@@ -58,7 +58,7 @@
 
             <div class="px-10 mt-5">
               <span class="font-mono text-5xl font-bold">Theory</span>
-              <span class="text-lg font-bold text-gray-500">7 days</span>
+              <span class="text-lg font-bold text-gray-500">in 7 days</span>
             </div>
 
             <div
@@ -117,7 +117,7 @@
 
             <div class="px-10 mt-5">
               <span class="font-mono text-5xl font-bold">Actual</span>
-              <span class="text-lg font-bold text-gray-500">7 days</span>
+              <span class="text-lg font-bold text-gray-500">in 7 days</span>
             </div>
 
             <div
@@ -165,51 +165,109 @@
 </template>
 
 <script>
-/*
-How to determıne weather dominance is Inc or Dec? (in last 7 days) 1 CALL
+import axios from 'axios'
 
-BTC.D = BTC MCAP / Others MCAP
+export default {
+  data() {
+    return {
+      currentBTCDominance: 0,
+      currentBTCPrice: 0,
+      BTCDominanceChangeInPercent: 0,
+      BTCPriceChangeInPercent: 0,
+      ALTsPriceChangeInPercent: 0,
+      rows: {
+        theory: [
+          {
+            1: [
+              { name: 'Increases', active: false },
+              { name: 'Increases', active: false },
+              { name: 'Decreases', active: false }
+            ],
+            2: [
+              { name: 'Increases', active: false },
+              { name: 'Decreases', active: false },
+              { name: 'Dec. Rapidly', active: false }
+            ],
+            3: [
+              { name: 'Increases', active: false },
+              { name: 'Stable', active: false },
+              { name: 'Stable', active: false }
+            ],
+            4: [
+              { name: 'Decreases', active: false },
+              { name: 'Increases', active: false },
+              { name: 'Inc. Rapidly', active: false }
+            ],
+            5: [
+              { name: 'Decreases', active: false },
+              { name: 'Decreases', active: false },
+              { name: 'Dec. / Stable', active: false }
+            ],
+            6: [
+              { name: 'Decreases', active: false },
+              { name: 'Stable', active: false },
+              { name: 'Increases', active: false }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  computed: {
+    isBTCDominanceIncreased() {
+      return false
+    },
+    isBTCPriceIncreased() {
+      return false
+    },
+    isALTsPriceIncreased() {
+      return false
+    }
+  },
+  async mounted() {
+    const today = new Date()
+    const theWeekBefore = new Date(today - 1000 * 60 * 60 * 24 * 7)
 
-free?
-KEY: c79c1db6-3d4e-42cc-966d-a458e2344d09
-headers: { "x-messari-api-key": "YOUR-SECRET-KEY" },
-https://data.messari.io/api/v1/assets/bitcoin/metrics/mcap.dom/time-series%5C?start%5C=2020-01-01%5C&end%5C=2020-02-01%5C&interval%5C=1d
+    const { data: coins } = await axios.get(
+      'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false&price_change_percentage=7d'
+    )
 
- */
+    const {
+      data: {
+        data: { values: dominanceOfBTCOfOneWeek }
+      }
+    } = await axios.get(
+      `https://data.messari.io/api/v1/assets/bitcoin/metrics/mcap.dom/time-series?after=${theWeekBefore
+        .toISOString()
+        .substr(0, 10)}&interval=1d`
+    )
 
-/*
-How to determıne weather BTC/USD is Inc or Dec or Stable? (in last 7 days) 2 CALL
+    console.log()
 
-https://api.coingecko.com/api/v3/coins/bitcoin/history?date=30-12-2017&localization=en
+    // const currentBTCMCap = coins[0].market_cap;
+    let priceChangeInPercentOfALTsTotal = 0
+    for (const coin of coins) {
+      if (coin.id === 'bitcoin') continue
 
- */
+      priceChangeInPercentOfALTsTotal +=
+        coin.price_change_percentage_7d_in_currency
+    }
 
-/*
-How to determıne weather ALTS is Inc or Dec or Stable? (in last 7 days) 188 CALL + 1
-
-rate: 50 per min =>  getting top 99 coin price  and filling array 99x2 = 188 call this means 2 sec delay of every call
-to get the coin list without stables +1 call needed()
-
-arithmetic mean of the array items
-https://api.coingecko.com/api/v3/coins/ethereum/history?date=30-12-2017&localization=en
-
- */
-
-/*
-OR instead of above two call below:
-
-curl -X 'GET' \
-  'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false&price_change_percentage=1h%2C24h%2C7d%2C14d%2C30d%2C200d%2C1y' \
-  -H 'accept: application/json'
-
-  call this with the options of
-  price_change_percentage  1h,24h,7d,14d,30d,200d,1y
-  arithmetic mean of the selected price_change_percentage of the array iitems
-
-
- */
-
-export default {}
+    this.currentBTCDominance =
+      dominanceOfBTCOfOneWeek[dominanceOfBTCOfOneWeek.length - 1][1]
+    this.currentBTCPrice = coins[0].current_price
+    this.BTCDominanceChangeInPercent =
+      ((this.currentBTCDominance - dominanceOfBTCOfOneWeek[0][1]) /
+        dominanceOfBTCOfOneWeek[0][1]) *
+      100
+    this.BTCPriceChangeInPercent =
+      coins[0].price_change_percentage_7d_in_currency
+    this.ALTsPriceChangeInPercent = priceChangeInPercentOfALTsTotal / 99
+  },
+  methods: {
+    isButtonActive() {}
+  }
+}
 </script>
 
 <style scoped></style>

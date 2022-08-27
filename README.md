@@ -17,52 +17,38 @@ $ npm run start
 $ npm run generate
 ```
 
-For detailed explanation on how things work, check out the [documentation](https://nuxtjs.org).
 
-## Special Directories
+## Notes
+How to determıne weather dominance is Inc or Dec? (in last 7 days) 1 CALL
 
-You can create the following extra directories, some of which have special behaviors. Only `pages` is required; you can delete them if you don't want to use their functionality.
+BTC.D = BTC MCAP / Others MCAP
 
-### `assets`
+free?
+headers: { "x-messari-api-key": "YOUR-SECRET-KEY" },
+https://data.messari.io/api/v1/assets/bitcoin/metrics/mcap.dom/time-series%5C?start%5C=2020-01-01%5C&end%5C=2020-02-01%5C&interval%5C=1d
+curl --compressed https://data.messari.io/api/v1/assets/bitcoin/metrics/mcap.dom/time-series\?start\=2019-01-01\&end\=2020-04-01\&interval=1d | jq .
 
-The assets directory contains your uncompiled assets such as Stylus or Sass files, images, or fonts.
+How to determıne weather BTC/USD is Inc or Dec or Stable? (in last 7 days) 2 CALL
 
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/assets).
+https://api.coingecko.com/api/v3/coins/bitcoin/history?date=30-12-2017&localization=en
 
-### `components`
 
-The components directory contains your Vue.js components. Components make up the different parts of your page and can be reused and imported into your pages, layouts and even other components.
+How to determıne weather ALTS is Inc or Dec or Stable? (in last 7 days) 188 CALL + 1
 
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/components).
+rate: 50 per min =>  getting top 99 coin price  and filling array 99x2 = 188 call this means 2 sec delay of every call
+to get the coin list without stables +1 call needed()
 
-### `layouts`
+arithmetic mean of the array items
+https://api.coingecko.com/api/v3/coins/ethereum/history?date=30-12-2017&localization=en
 
-Layouts are a great help when you want to change the look and feel of your Nuxt app, whether you want to include a sidebar or have distinct layouts for mobile and desktop.
 
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/layouts).
+OR instead of above two call below:
 
-### `pages`
+curl -X 'GET' \
+'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false&price_change_percentage=1h%2C24h%2C7d%2C14d%2C30d%2C200d%2C1y' \
+-H 'accept: application/json'
 
-This directory contains your application views and routes. Nuxt will read all the `*.vue` files inside this directory and setup Vue Router automatically.
+call this with the options of
+price_change_percentage  1h,24h,7d,14d,30d,200d,1y
+arithmetic mean of the selected price_change_percentage of the array iitems
 
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/get-started/routing).
-
-### `plugins`
-
-The plugins directory contains JavaScript plugins that you want to run before instantiating the root Vue.js Application. This is the place to add Vue plugins and to inject functions or constants. Every time you need to use `Vue.use()`, you should create a file in `plugins/` and add its path to plugins in `nuxt.config.js`.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/plugins).
-
-### `static`
-
-This directory contains your static files. Each file inside this directory is mapped to `/`.
-
-Example: `/static/robots.txt` is mapped as `/robots.txt`.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/static).
-
-### `store`
-
-This directory contains your Vuex store files. Creating a file in this directory automatically activates Vuex.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/store).
