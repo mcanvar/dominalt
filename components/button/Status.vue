@@ -1,7 +1,7 @@
 <template>
   <div
     :class="activeClasses"
-    class="inline-flex text-xs items-center justify-center w-full p-2 transition duration-150 cursor-default bg-gradient-to-r from-gray-500 to-gray-700 ease-in-out border border-transparent rounded-md checkout focus:outline-none disabled:opacity-25"
+    class="inline-flex text-xs items-center justify-center w-full p-2 transition duration-150 cursor-default bg-gradient-to-r from-gray-500 to-gray-700 ease-in-out rounded-md checkout focus:outline-none disabled:opacity-25"
   >
     {{ name }}
   </div>
@@ -33,7 +33,10 @@ export default Vue.extend({
     activeClasses() {
       return {
         'bg-gradient-to-r': this.active,
-        'animate-pulse': this.active && !this.increasing && !this.decreasing,
+        'animate-pulse':
+          (this.active && !this.increasing && !this.decreasing) ||
+          this.increasing ||
+          this.decreasing,
         'from-wave-600': this.active && !this.increasing && !this.decreasing,
         'to-indigo-500': this.active && !this.increasing && !this.decreasing,
         'hover:from-wave-500':

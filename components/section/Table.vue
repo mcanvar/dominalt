@@ -131,40 +131,65 @@
             </div>
 
             <div
-              class="grid grid-cols-3 gap-1 grid-rows-1 place-items-center px-10 mt-6 pb-9 text-sm text-white font-semibold"
+              class="grid grid-cols-3 gap-x-1 place-items-center px-10 mt-6 pb-9 text-sm text-white font-semibold"
             >
-              <div
-                class="grid grid-cols-1 grid-rows-7 gap-1 p-2 w-full place-items-center rounded-lg bg-gray-100"
-              >
+              <div class="rounded-t-lg bg-gray-100 p-1 w-full text-center">
                 <h3 class="text-gray-900">BTC.D</h3>
-                <ButtonStatus name="Increases" />
-                <ButtonStatus name="Increases" />
-                <ButtonStatus name="Increases" />
-                <ButtonStatus active decreasing name="42.1% (-1.8%)" />
-                <ButtonStatus name="Decreases" />
-                <ButtonStatus name="Decreases" />
               </div>
-              <div
-                class="grid grid-cols-1 grid-rows-7 gap-1 p-2 w-full place-items-center rounded-lg bg-gray-200"
-              >
+              <div class="rounded-t-lg bg-gray-200 p-1 w-full text-center">
                 <h3 class="text-gray-900">BTC</h3>
-                <ButtonStatus name="Increases" />
-                <ButtonStatus name="Decreases" />
-                <ButtonStatus name="Stable" />
-                <ButtonStatus active increasing name="44.640 (+3%)" />
-                <ButtonStatus name="Decreases" />
-                <ButtonStatus name="Stable" />
               </div>
+              <div class="rounded-t-lg bg-gray-300 p-1 w-full text-center">
+                <h3 class="text-gray-900">ALTs</h3>
+              </div>
+
               <div
-                class="grid grid-cols-1 grid-rows-7 gap-1 p-2 w-full place-items-center rounded-lg bg-gray-300"
+                v-for="(rule, i) in rules"
+                :key="i"
+                class="grid grid-cols-3 col-span-3 w-full gap-x-1"
               >
-                <h3 class="text-gray-900">ALTS</h3>
-                <ButtonStatus name="Decreases" />
-                <ButtonStatus name="Dec. Rapidly" />
-                <ButtonStatus name="Stable" />
-                <ButtonStatus active increasing name="+11.3 %" />
-                <ButtonStatus name="Dec./Stable" />
-                <ButtonStatus name="Increases" />
+                <div
+                  :class="{ 'rounded-b-lg': i === 5 }"
+                  class="bg-gray-100 p-1 w-full text-center"
+                >
+                  <ButtonStatus
+                    :decreasing="isInCurrent(rule) && !isBTCDominanceIncreased"
+                    :increasing="isInCurrent(rule) && isBTCDominanceIncreased"
+                    :name="
+                      isInCurrent(rule)
+                        ? `${currentBTCDominance.toFixed(
+                            2
+                          )} (${BTCDominanceChangeInPercent.toFixed(2)}%)`
+                        : rule.dominance
+                    "
+                  />
+                </div>
+                <div
+                  :class="{ 'rounded-b-lg': i === 5 }"
+                  class="bg-gray-200 p-1 w-full text-center"
+                >
+                  <ButtonStatus
+                    :decreasing="isInCurrent(rule) && !isBTCPriceIncreased"
+                    :increasing="isInCurrent(rule) && isBTCPriceIncreased"
+                    :name="
+                      isInCurrent(rule)
+                        ? `${currentBTCPrice.toFixed(
+                            0
+                          )}$ (${BTCPriceChangeInPercent.toFixed(2)}%)`
+                        : rule.BTCPrice
+                    "
+                  />
+                </div>
+                <div
+                  :class="{ 'rounded-b-lg': i === 5 }"
+                  class="bg-gray-300 p-1 w-full text-center"
+                >
+                  <ButtonStatus
+                    :decreasing="isInCurrent(rule) && !isALTsPricesIncreased"
+                    :increasing="isInCurrent(rule) && isALTsPricesIncreased"
+                    :name="currentRule.ALTsPrice"
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -236,6 +261,9 @@ export default {
     },
     isBTCPriceIncreased() {
       return this.BTCPriceChangeInPercent > 1
+    },
+    isALTsPricesIncreased() {
+      return this.ALTsPriceChangeInPercent > 0
     },
     isBTCPriceStable() {
       return (
