@@ -17,8 +17,8 @@ $ npm run start
 $ npm run generate
 ```
 
-
 ## Notes
+
 How to determıne weather dominance is Inc or Dec? (in last 7 days) 1 CALL
 
 BTC.D = BTC MCAP / Others MCAP
@@ -32,15 +32,13 @@ How to determıne weather BTC/USD is Inc or Dec or Stable? (in last 7 days) 2 CA
 
 https://api.coingecko.com/api/v3/coins/bitcoin/history?date=30-12-2017&localization=en
 
-
 How to determıne weather ALTS is Inc or Dec or Stable? (in last 7 days) 188 CALL + 1
 
-rate: 50 per min =>  getting top 99 coin price  and filling array 99x2 = 188 call this means 2 sec delay of every call
+rate: 50 per min => getting top 99 coin price and filling array 99x2 = 188 call this means 2 sec delay of every call
 to get the coin list without stables +1 call needed()
 
 arithmetic mean of the array items
 https://api.coingecko.com/api/v3/coins/ethereum/history?date=30-12-2017&localization=en
-
 
 OR instead of above two call below:
 
@@ -49,6 +47,5 @@ curl -X 'GET' \
 -H 'accept: application/json'
 
 call this with the options of
-price_change_percentage  1h,24h,7d,14d,30d,200d,1y
+price_change_percentage 1h,24h,7d,14d,30d,200d,1y
 arithmetic mean of the selected price_change_percentage of the array iitems
-
