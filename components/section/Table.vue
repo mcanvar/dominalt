@@ -84,7 +84,7 @@
                   class="bg-gray-100 p-1 w-full text-center"
                 >
                   <ButtonStatus
-                    :active="isInCurrent(rule)"
+                    :active="isInCurrent(i)"
                     :name="rule.dominance"
                   />
                 </div>
@@ -93,7 +93,7 @@
                   class="bg-gray-200 p-1 w-full text-center"
                 >
                   <ButtonStatus
-                    :active="isInCurrent(rule)"
+                    :active="isInCurrent(i)"
                     :name="rule.BTCPrice"
                   />
                 </div>
@@ -102,7 +102,7 @@
                   class="bg-gray-300 p-1 w-full text-center"
                 >
                   <ButtonStatus
-                    :active="isInCurrent(rule)"
+                    :active="isInCurrent(i)"
                     :name="rule.ALTsPrice"
                   />
                 </div>
@@ -153,10 +153,10 @@
                   class="bg-gray-100 p-1 w-full text-center"
                 >
                   <ButtonStatus
-                    :decreasing="isInCurrent(rule) && !isBTCDominanceIncreased"
-                    :increasing="isInCurrent(rule) && isBTCDominanceIncreased"
+                    :decreasing="isInCurrent(i) && !isBTCDominanceIncreased"
+                    :increasing="isInCurrent(i) && isBTCDominanceIncreased"
                     :name="
-                      isInCurrent(rule)
+                      isInCurrent(i)
                         ? `${currentBTCDominance.toFixed(
                             2
                           )} (${BTCDominanceChangeInPercent.toFixed(2)}%)`
@@ -169,10 +169,10 @@
                   class="bg-gray-200 p-1 w-full text-center"
                 >
                   <ButtonStatus
-                    :decreasing="isInCurrent(rule) && !isBTCPriceIncreased"
-                    :increasing="isInCurrent(rule) && isBTCPriceIncreased"
+                    :decreasing="isInCurrent(i) && !isBTCPriceIncreased"
+                    :increasing="isInCurrent(i) && isBTCPriceIncreased"
                     :name="
-                      isInCurrent(rule)
+                      isInCurrent(i)
                         ? `${currentBTCPrice.toFixed(
                             0
                           )}$ (${BTCPriceChangeInPercent.toFixed(2)}%)`
@@ -185,9 +185,9 @@
                   class="bg-gray-300 p-1 w-full text-center"
                 >
                   <ButtonStatus
-                    :decreasing="isInCurrent(rule) && !isALTsPricesIncreased"
-                    :increasing="isInCurrent(rule) && isALTsPricesIncreased"
-                    :name="currentRule.ALTsPrice"
+                    :decreasing="isInCurrent(i) && !isALTsPricesIncreased"
+                    :increasing="isInCurrent(i) && isALTsPricesIncreased"
+                    :name="rule.ALTsPrice"
                   />
                 </div>
               </div>
@@ -255,6 +255,15 @@ export default {
           : 'Decreases',
         ALTsPrice: this.ALTsPriceText
       }
+    },
+    currentRuleIndex() {
+      return this.rules.findIndex((rule) => {
+        return (
+          rule.ALTsPrice === this.currentRule.ALTsPrice &&
+          rule.BTCPrice === this.currentRule.BTCPrice &&
+          rule.dominance === this.currentRule.dominance
+        )
+      })
     },
     isBTCDominanceIncreased() {
       return this.BTCDominanceChangeInPercent > 0
@@ -331,20 +340,8 @@ export default {
     this.ALTsPriceChangeInPercent = priceChangeInPercentOfALTsTotal / 99
   },
   methods: {
-    isInCurrent(rule) {
-      let ALTsPrice = ''
-      if (
-        rule.ALTsPrice === 'Dec. or Stable' &&
-        (this.currentRule.ALTsPrice === 'Decreases' ||
-          this.currentRule.ALTsPrice === 'Stable')
-      )
-        ALTsPrice = this.currentRule.ALTsPrice
-
-      return (
-        rule.dominance === this.currentRule.dominance &&
-        rule.BTCPrice === this.currentRule.BTCPrice &&
-        ALTsPrice === this.currentRule.ALTsPrice
-      )
+    isInCurrent(ruleIndex) {
+      return this.currentRuleIndex === ruleIndex
     }
   }
 }
