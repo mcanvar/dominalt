@@ -49,3 +49,14 @@ curl -X 'GET' \
 call this with the options of
 price_change_percentage 1h,24h,7d,14d,30d,200d,1y
 arithmetic mean of the selected price_change_percentage of the array iitems
+
+
+TODOS from last meeting:
+- ALTs ortalaması nasıl hesaplanmalı?
+  - MCAP kullanarak ağırlıklı ortalamayı araştır.
+- 24h, 7d, 14d, 30d, 200d, 1y kullanılabileceğimizi kullanalım, zaman seçilebilsin
+- ALTs -> increase/decrease
+- 50 / TOP 100 (D) / 250 / 500 / 1000
+- Theory actual akt’f olmayanlar ayni kalsın
+- Actual tafainda seçim ve butonlar
+- marketcapof.com 2. Sayfa basit şekilde yapılabilir.
