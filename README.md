@@ -26,7 +26,9 @@ BTC.D = BTC MCAP / Others MCAP
 free?
 headers: { "x-messari-api-key": "YOUR-SECRET-KEY" },
 https://data.messari.io/api/v1/assets/bitcoin/metrics/mcap.dom/time-series%5C?start%5C=2020-01-01%5C&end%5C=2020-02-01%5C&interval%5C=1d
-curl --compressed https://data.messari.io/api/v1/assets/bitcoin/metrics/mcap.dom/time-series\?start\=2019-01-01\&end\=2020-04-01\&interval=1d | jq .
+curl
+--compressed https://data.messari.io/api/v1/assets/bitcoin/metrics/mcap.dom/time-series\?start\=2019-01-01\&end\=2020-04-01\&interval=1d |
+jq .
 
 How to determıne weather BTC/USD is Inc or Dec or Stable? (in last 7 days) 2 CALL
 
@@ -50,10 +52,10 @@ call this with the options of
 price_change_percentage 1h,24h,7d,14d,30d,200d,1y
 arithmetic mean of the selected price_change_percentage of the array iitems
 
-
 TODOS from last meeting:
+
 - ALTs ortalaması nasıl hesaplanmalı?
-  - MCAP kullanarak ağırlıklı ortalamayı araştır.
+- MCAP kullanarak ağırlıklı ortalamayı araştır.
 - 24h, 7d, 14d, 30d, 200d, 1y kullanılabileceğimizi kullanalım, zaman seçilebilsin
 - ALTs -> increase/decrease
 - 50 / TOP 100 (D) / 250 / 500 / 1000
